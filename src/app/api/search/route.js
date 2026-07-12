@@ -16,12 +16,40 @@ export async function POST(request) {
 
     const cleanDestino = (destino || "").trim().toLowerCase();
 
-    // Check if it's one of the recommended destinations to load high-quality custom data
-    if (cleanDestino.includes("san miguel") || cleanDestino.includes("oaxaca")) {
-      const matchKey = cleanDestino.includes("san miguel") ? "san miguel" : "oaxaca";
+    // Check if it's a recommended destination (prioritizing Database, falling back to static file)
+    let recommendedMatch = null;
+    if (supabase) {
+      try {
+        const { data } = await supabase
+          .from("recomendados")
+          .select("*")
+          .ilike("destino", `%${cleanDestino}%`)
+          .limit(1)
+          .single();
+        if (data) {
+          recommendedMatch = {
+            destino: data.destino,
+            lat: Number(data.lat),
+            lon: Number(data.lon),
+            clima: data.clima,
+            hoteles: data.hoteles,
+            atracciones: data.atracciones,
+            restaurantes: data.restaurantes,
+            itinerario: data.itinerario || [],
+            imagen: data.imagen
+          };
+        }
+      } catch (e) {
+        console.warn("Could not find recommended in DB table:", e.message);
+      }
+    }
+
+    if (!recommendedMatch) {
+      // Fallback: search in static RECOMMENDED_PLACES
+      const matchKey = cleanDestino.includes("san miguel") ? "san miguel" : (cleanDestino.includes("oaxaca") ? "oaxaca" : cleanDestino);
       const place = RECOMMENDED_PLACES.find(p => p.destino.toLowerCase().includes(matchKey));
       if (place) {
-        aiData = {
+        recommendedMatch = {
           destino: place.destino,
           lat: place.lat,
           lon: place.lon,
@@ -29,11 +57,25 @@ export async function POST(request) {
           hoteles: place.hoteles,
           atracciones: place.atracciones,
           restaurantes: place.restaurantes,
-          itinerario: place.itinerario || []
+          itinerario: place.itinerario || [],
+          imagen: place.imagen
         };
-        fotoDestino = place.imagen;
-        usedCache = true;
       }
+    }
+
+    if (recommendedMatch) {
+      aiData = {
+        destino: recommendedMatch.destino,
+        lat: recommendedMatch.lat,
+        lon: recommendedMatch.lon,
+        clima: recommendedMatch.clima,
+        hoteles: recommendedMatch.hoteles,
+        atracciones: recommendedMatch.atracciones,
+        restaurantes: recommendedMatch.restaurantes,
+        itinerario: recommendedMatch.itinerario
+      };
+      fotoDestino = recommendedMatch.imagen;
+      usedCache = true;
     } else {
       // 1. Intentar obtener de Caché
       try {

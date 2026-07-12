@@ -92,6 +92,25 @@ export default function Home() {
     setModalData(null);
   };
 
+  const [recommendedPlaces, setRecommendedPlaces] = useState(RECOMMENDED_PLACES);
+
+  useEffect(() => {
+    async function loadRecommended() {
+      try {
+        const response = await fetch("/api/recommended");
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.length > 0) {
+            setRecommendedPlaces(data);
+          }
+        }
+      } catch (err) {
+        console.warn("Error loading recommended places from DB:", err);
+      }
+    }
+    loadRecommended();
+  }, []);
+
   // Animación del loader
   const loadingMessages = [
     "Consultando bases de datos de viajes...",
@@ -663,7 +682,7 @@ export default function Home() {
           </div>
           
           <div className="recommended-grid">
-            {RECOMMENDED_PLACES.map((place, idx) => (
+            {recommendedPlaces.map((place, idx) => (
               <div 
                 key={place.destino}
                 className="recommended-card"

@@ -151,7 +151,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "The Ritz-Carlton, Kyoto",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://cache.marriott.com/is/image/marriotts7prod/rz-ukyrz-exterior-31629:Wide-Hor?wid=1336&fit=constrain",
         descripcion: "Lujo sereno a orillas del río Kamogawa. Con vistas de Higashiyama, suites decoradas con paneles de madera shoji hechos a mano, y una gastronomía Michelin excepcional.",
         precio: "$$$$",
         rating: "4.9",
@@ -161,7 +161,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Hoshinoya Kyoto",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/0e/6e/42/caption.jpg?w=800&h=500&s=1",
         descripcion: "Un ryokan de ultra-lujo situado en Arashiyama. Únicamente accesible mediante un paseo de 15 minutos en barca tradicional de madera por el río Oi, rodeado de arces centenarios.",
         precio: "$$$$",
         rating: "4.95",
@@ -171,7 +171,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Sowaka Ryokan",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://sowaka.com/images/room/room_img01.jpg",
         descripcion: "Un ryokan contemporáneo de lujo alojado en una casona tradicional machiya de la era Taisho en el distrito histórico de Gion. Una mezcla de paz zen e interiorismo japonés.",
         precio: "$$$$",
         rating: "4.8",
@@ -282,7 +282,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Anantara Chiang Mai Resort",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://assets.anantara.com/image/upload/q_auto,f_auto/media/minor/anantara/images/anantara-chiang-mai-resort/gallery/anantara-chiang-mai/overview/anantara_chiang_mai_resort_swimming_pool_1920x1037.jpg",
         descripcion: "Un impresionante resort a orillas del río Ping. Su diseño fusiona la herencia del antiguo consulado británico construido en 1921 con elegantes toques asiáticos modernos.",
         precio: "$$$",
         rating: "4.8",
@@ -292,7 +292,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "137 Pillars House",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/4d/17/76/grounds--v5027762.jpg?w=900&h=500&s=1",
         descripcion: "Una casona colonial de madera de teca del siglo XIX, cuidadosamente restaurada en el centro del distrito de Wat Gate, equipada con suites amplias y rodeada de vegetación exuberante.",
         precio: "$$$$",
         rating: "4.9",
@@ -302,7 +302,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Tamarind Village",
         stars: "4",
-        imagen: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0YAgq5XSOPry1fRqezlGsBkkAowOLSgrHr19o9Kvrav1iYwgCRqe3ezk4&s=10",
         descripcion: "Un oasis rodeado de templos en la ciudad antigua. Su entrada es a través de un espectacular túnel verde custodiado por un imponente árbol de tamarindo con 200 años de antigüedad.",
         precio: "$$",
         rating: "4.7",
@@ -314,7 +314,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Wat Phra That Doi Suthep",
         tipo: "Templo de Montaña",
-        imagen: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/75/4a/e5.jpg",
         descripcion: "El santuario budista más sagrado y reverenciado en el norte del país, situado en una frondosa montaña. Famoso por su estupa central dorada que brilla al sol.",
         precio: "฿30 aprox.",
         rating: "4.8",
@@ -324,7 +324,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Elephant Nature Park",
         tipo: "Santuario Ético",
-        imagen: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://www.elephantnaturepark.org/wp-content/uploads/2025/11/HalfDay_Morning_Visit.jpg",
         descripcion: "Pionero centro de rescate para elefantes, perros, gatos y búfalos fundado por Lek Chailert. Un espacio libre de maltrato donde se puede observar a los paquidermos interactuar pacíficamente.",
         precio: "Desde ฿2500",
         rating: "4.9",
@@ -334,7 +334,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Night Bazaar",
         tipo: "Compras y Comida",
-        imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://cdn.sanity.io/images/nxpteyfv/goguides/6b1599cfb547d7dc57c207d639e84d52abc150a7-1600x1066.jpg",
         descripcion: "Un vibrante distrito de mercados que cobra vida todas las tardes al encender sus luces. Es ideal para comprar artesanías locales hechas de madera, seda y comer comida local deliciosa y barata.",
         precio: "Gratis",
         rating: "4.5",
@@ -344,7 +344,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Wat Chedi Luang",
         tipo: "Ruinas Históricas",
-        imagen: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.squarespace-cdn.com/content/v1/5438e2c6e4b0b18459a8ca06/1593080275991-VH2IOY4XV4ZHMERVAQL0/GTJ-2020-0625-84.jpg",
         descripcion: "Un antiguo templo budista erigido a finales del siglo XIV. Su gran estupa central parcialmente en ruinas debido a un terremoto en 1545 sigue albergando una aura espiritual imponente.",
         precio: "฿40 aprox.",
         rating: "4.7",
@@ -356,7 +356,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "SP Chicken",
         tipo: "Pollo Asado Tailandés",
-        imagen: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://c8.alamy.com/comp/K905F4/the-famous-sp-chicken-in-chiang-mai-thailand-K905F4.jpg",
         descripcion: "Un pequeño pero famosísimo local familiar recomendado por la guía Michelin, especializado en preparar pollos asados al estilo Isan rellenos de ajo aromático, limoncillo y especias.",
         precio: "$",
         rating: "4.6",
@@ -366,7 +366,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Huen Phen",
         tipo: "Comida Lanna Tradicional",
-        imagen: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/7d/76/75/caption.jpg?w=900&h=500&s=1",
         descripcion: "Sirviendo platos tradicionales Lanna del norte del país por más de 40 años. Decorado al estilo vintage con cientos de antigüedades acumuladas a lo largo de décadas.",
         precio: "$$",
         rating: "4.4",
@@ -376,7 +376,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "The Service 1921",
         tipo: "Fusión Asiática",
-        imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/a9/f0/a1/colonial-house.jpg?w=500&h=-1&s=1",
         descripcion: "Restaurante del Anantara decorado ingeniosamente simulando una sede del servicio de inteligencia británico de 1921. Cocina contemporánea exquisita de fusión asiática.",
         precio: "$$$",
         rating: "4.7",
@@ -413,7 +413,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Four Seasons Resort The Nam Hai",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/c4/9f/56/heart-of-the-earth-spa.jpg?w=900&h=500&s=1",
         descripcion: "Resort de ultra-lujo situado a orillas del mar en la playa Ha My. Incorpora villas privadas de espectacular diseño inspiradas en los hogares tradicionales vietnamitas del siglo XIX.",
         precio: "$$$$",
         rating: "4.95",
@@ -423,7 +423,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Anantara Hoi An Resort",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS85qy-KFB8kBXn6sFXaoK0sQkWSg0oirXKH5xnEcvg45wYrW_muZJp8BE&s=10",
         descripcion: "Un retiro colonial situado al borde del río Thu Bon. Jardines tropicales suntuosos, habitaciones de diseño colonial indochino y actividades inmersivas de cocina y linternas.",
         precio: "$$$",
         rating: "4.8",
@@ -433,7 +433,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "La Siesta Hoi An Resort & Spa",
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/e2/c0/ea/the-temple-restaurant.jpg?w=900&h=500&s=1",
         descripcion: "Boutique resort de ensueño colindante con campos de arroz. Cuenta con dos alas, colonial y clásica, servicio de spa de renombre y múltiples piscinas rodeadas de áreas verdes.",
         precio: "$$",
         rating: "4.9",
@@ -445,7 +445,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Casco Antiguo de Hoi An",
         tipo: "Patrimonio Cultural",
-        imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlMO0uKpuiEAtXDTfGhz_6ojhBrtRzoEaD-k6hZRqyBg&s=10",
         descripcion: "El corazón colonial de Hoi An. Declarado Patrimonio Mundial de la UNESCO, conserva casonas del siglo XV, templos chinos ricamente decorados y sus calles peatonales con linternas.",
         precio: "$120,000 VND aprox.",
         rating: "4.9",
@@ -455,7 +455,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Puente Cubierto Japonés",
         tipo: "Monumento Histórico",
-        imagen: "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://horizon-vietnamviaje.com/wp-content/uploads/2018/04/le-pont-japonais-hoi-an-vietnam.jpg",
         descripcion: "Una notable estructura arqueada construida por la comunidad japonesa local a principios del siglo XVII, que destaca por su techado de tejas ornamentado y su altar budista.",
         precio: "Incluido en pase de Casco Antiguo",
         rating: "4.6",
@@ -465,7 +465,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Mercado Nocturno de Linternas",
         tipo: "Atracción Visual",
-        imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/17/15/27/e6.jpg",
         descripcion: "Un despliegue de miles de linternas de seda de colores iluminadas cruzando el río. Ideal para cenar especialidades locales y adquirir manualidades típicas vietnamitas.",
         precio: "Gratis",
         rating: "4.7",
@@ -475,7 +475,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Playa de An Bang",
         tipo: "Playa y Relajación",
-        imagen: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://izitour.com/media/ckeditor/shore-club-an-bang.webp",
         descripcion: "Hermosa playa de aguas cálidas y arena suave ubicada a corta distancia en bicicleta. Repleta de marisquerías y zonas ideales para relajarse en camastros tradicionales de bambú.",
         precio: "Gratis",
         rating: "4.6",
@@ -487,7 +487,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Morning Glory Original",
         tipo: "Tradicional Vietnamita",
-        imagen: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSigJfiy1Fs741iSA2NHXbbMlt3WspgQKcr-4zG5s6dEpFpq732u69zLHk9&s=10",
         descripcion: "El afamado restaurante fundado por Miss Vy. Es el mejor lugar en Hoi An para probar los Cao Lau y los dumplings White Rose elaborados de forma tradicional en una cocina abierta central.",
         precio: "$$",
         rating: "4.6",
@@ -497,7 +497,7 @@ export const RECOMMENDED_PLACES = [
       {
         nombre: "Banh Mi Phuong",
         tipo: "Comida Callejera / Banh Mi",
-        imagen: "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq2r0phRtX7X-pe46ymYHdCjLSMQDd7EQG5t8KEhZEtFYYCQNAYUG5jY_R&s=10",
         descripcion: "El local de Banh Mi más famoso del mundo, popularizado por Anthony Bourdain en su programa. Sirve baguettes horneadas al día crujientes rellenas con paté especial de cerdo.",
         precio: "$",
         rating: "4.7",
@@ -533,7 +533,7 @@ export const RECOMMENDED_PLACES = [
     clima: "24°C",
     lat: 17.0732,
     lon: -96.7266,
-    imagen: "/images/oaxaca.jpg",
+    imagen: "https://oaxacatraveltips.com/wp-content/uploads/2025/08/santo-domingo-centro-de-oaxaca-1024x631.jpg",
     presupuesto_estimado: {
       vuelos: 220,
       hotel: 280,
