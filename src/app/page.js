@@ -120,7 +120,11 @@ export default function Home() {
     return (baseFlights * personas) + (basePerDay * dias * personas);
   };
 
-  const handleLoadRecommended = (place) => {
+  const handleLoadRecommended = async (place) => {
+    setLoading(true);
+    setError(null);
+    setShowDashboard(false);
+
     // 1. Establecer inputs de búsqueda
     setDestino(place.destino);
     if (!origen) {
@@ -132,81 +136,188 @@ export default function Home() {
     if (place.destino === "Chiang Mai, Tailandia") selectedConfort = "mochilero";
     setConfort(selectedConfort);
 
-    // 2. Calcular presupuesto escalado según días y personas (en USD)
-    const scaleDays = dias / 5;
-    const scalePeople = personas;
+    const baseFlights = selectedConfort === "mochilero" ? 300 : selectedConfort === "lujo" ? 1200 : 600;
+    const basePerDay = selectedConfort === "mochilero" ? 50 : selectedConfort === "lujo" ? 250 : 120;
+    const presupuestoEstimadoUSD = (baseFlights * personas) + (basePerDay * dias * personas);
 
-    const baseVuelos = place.presupuesto_estimado.vuelos;
-    const baseHotel = place.presupuesto_estimado.hotel;
-    const baseComida = place.presupuesto_estimado.comida;
-    const baseTransport = place.presupuesto_estimado.transporte;
+    const hoy = new Date();
+    const regreso = new Date();
+    regreso.setDate(hoy.getDate() + parseInt(dias));
 
-    const scaledVuelos = baseVuelos * scalePeople;
-    const scaledHotel = baseHotel * scaleDays * scalePeople;
-    const scaledComida = baseComida * scaleDays * scalePeople;
-    const scaledTransport = baseTransport * scaleDays * scalePeople;
+    const fechaInicioStr = hoy.toISOString().split("T")[0];
+    const fechaFinStr = regreso.toISOString().split("T")[0];
 
-    // 3. Convertir a la divisa seleccionada
-    const currentRate = RATES[moneda].rate;
-    const breakdown = {
-      vuelos: Math.round(scaledVuelos * currentRate),
-      hotel: Math.round(scaledHotel * currentRate),
-      comida: Math.round(scaledComida * currentRate),
-      transporte: Math.round(scaledTransport * currentRate)
-    };
+    try {
+      // Intentar cargar del API (que accede a la base de datos)
+      const response = await fetch("/api/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          origen: origen || "Ciudad de México",
+          destino: place.destino,
+          fecha_inicio: fechaInicioStr,
+          fecha_fin: fechaFinStr,
+          presupuesto: presupuestoEstimadoUSD.toString(),
+          personas: personas.toString(),
+          tipo_viaje: selectedConfort === "mochilero" ? "aventura" : "ciudad"
+        })
+      });
 
-    setBudgetBreakdown(breakdown);
-    const total = Object.values(breakdown).reduce((a, b) => a + b, 0);
-    setTotalBudget(total);
-
-    // 4. Construir itinerario dinámico adaptado al número de días
-    const dynamicItinerary = [];
-    const extraActivities = [
-      "Día libre para explorar rincones ocultos de la ciudad, hacer fotografía y disfrutar del ambiente local.",
-      "Día de compras de souvenirs de diseño y degustación de comida callejera en mercados locales.",
-      "Excursión opcional a los alrededores del destino o tarde relajante en un café tradicional de la zona.",
-      "Visita a museos secundarios o galerías independientes recomendadas por locales.",
-      "Último día de caminatas tranquilas, disfrutar del atardecer y cena especial de despedida en un mirador."
-    ];
-
-    for (let i = 0; i < dias; i++) {
-      if (i < place.itinerario.length) {
-        dynamicItinerary.push({
-          dia: `Día ${i + 1}`,
-          descripcion: place.itinerario[i].descripcion
-        });
-      } else {
-        const activityIndex = (i - place.itinerario.length) % extraActivities.length;
-        dynamicItinerary.push({
-          dia: `Día ${i + 1}`,
-          descripcion: extraActivities[activityIndex]
-        });
+      if (!response.ok) {
+        throw new Error("No se pudo conectar a la base de datos.");
       }
+
+      const data = await response.json();
+
+      // Ajustar presupuesto según la divisa seleccionada y días/personas
+      const currentRate = RATES[moneda].rate;
+      const scaleDays = dias / 5;
+      const scalePeople = personas;
+
+      // Usar los valores base del registro de la base de datos
+      const baseVuelos = data.presupuesto_estimado?.vuelos || place.presupuesto_estimado.vuelos;
+      const baseHotel = data.presupuesto_estimado?.hotel || place.presupuesto_estimado.hotel;
+      const baseComida = data.presupuesto_estimado?.comida || place.presupuesto_estimado.comida;
+      const baseTransport = data.presupuesto_estimado?.transporte || place.presupuesto_estimado.transporte || 100;
+
+      const scaledVuelos = baseVuelos * scalePeople;
+      const scaledHotel = baseHotel * scaleDays * scalePeople;
+      const scaledComida = baseComida * scaleDays * scalePeople;
+      const scaledTransport = baseTransport * scaleDays * scalePeople;
+
+      const breakdown = {
+        vuelos: Math.round(scaledVuelos * currentRate),
+        hotel: Math.round(scaledHotel * currentRate),
+        comida: Math.round(scaledComida * currentRate),
+        transporte: Math.round(scaledTransport * currentRate)
+      };
+
+      setBudgetBreakdown(breakdown);
+      const total = Object.values(breakdown).reduce((a, b) => a + b, 0);
+      setTotalBudget(total);
+
+      // Itinerario dinámico
+      const dynamicItinerary = [];
+      const extraActivities = [
+        "Día libre para explorar rincones ocultos de la ciudad, hacer fotografía y disfrutar del ambiente local.",
+        "Día de compras de souvenirs de diseño y degustación de comida callejera en mercados locales.",
+        "Excursión opcional a los alrededores del destino o tarde relajante en un café tradicional de la zona.",
+        "Visita a museos secundarios o galerías independientes recomendadas por locales.",
+        "Último día de caminatas tranquilas, disfrutar del atardecer y cena especial de despedida en un mirador."
+      ];
+
+      const itinerarioBase = data.itinerario || place.itinerario;
+      for (let i = 0; i < dias; i++) {
+        if (i < itinerarioBase.length) {
+          dynamicItinerary.push({
+            dia: `Día ${i + 1}`,
+            descripcion: itinerarioBase[i].descripcion
+          });
+        } else {
+          const activityIndex = (i - itinerarioBase.length) % extraActivities.length;
+          dynamicItinerary.push({
+            dia: `Día ${i + 1}`,
+            descripcion: extraActivities[activityIndex]
+          });
+        }
+      }
+
+      setOriginalData({
+        destino: data.destino || place.destino,
+        lat: data.lat || place.lat,
+        lon: data.lon || place.lon,
+        clima: data.clima || place.clima,
+        hoteles: data.hoteles || place.hoteles,
+        atracciones: data.atracciones || place.atracciones,
+        restaurantes: data.restaurantes || place.restaurantes,
+        imagen: data.imagen || place.imagen,
+        itinerario: dynamicItinerary,
+        presupuesto_estimado: {
+          total: scaledVuelos + scaledHotel + scaledComida + scaledTransport,
+          vuelos: scaledVuelos,
+          hotel: scaledHotel,
+          comida: scaledComida,
+          transporte: scaledTransport
+        }
+      });
+
+      setShowDashboard(true);
+
+    } catch (err) {
+      console.warn("Error al cargar de la base de datos, usando fallback local:", err);
+      // Fallback local en memoria
+      const scaleDays = dias / 5;
+      const scalePeople = personas;
+
+      const baseVuelos = place.presupuesto_estimado.vuelos;
+      const baseHotel = place.presupuesto_estimado.hotel;
+      const baseComida = place.presupuesto_estimado.comida;
+      const baseTransport = place.presupuesto_estimado.transporte || 100;
+
+      const scaledVuelos = baseVuelos * scalePeople;
+      const scaledHotel = baseHotel * scaleDays * scalePeople;
+      const scaledComida = baseComida * scaleDays * scalePeople;
+      const scaledTransport = baseTransport * scaleDays * scalePeople;
+
+      const currentRate = RATES[moneda].rate;
+      const breakdown = {
+        vuelos: Math.round(scaledVuelos * currentRate),
+        hotel: Math.round(scaledHotel * currentRate),
+        comida: Math.round(scaledComida * currentRate),
+        transporte: Math.round(scaledTransport * currentRate)
+      };
+
+      setBudgetBreakdown(breakdown);
+      const total = Object.values(breakdown).reduce((a, b) => a + b, 0);
+      setTotalBudget(total);
+
+      const dynamicItinerary = [];
+      const extraActivities = [
+        "Día libre para explorar rincones ocultos de la ciudad, hacer fotografía y disfrutar del ambiente local.",
+        "Día de compras de souvenirs de diseño y degustación de comida callejera en mercados locales.",
+        "Excursión opcional a los alrededores del destino o tarde relajante en un café tradicional de la zona.",
+        "Visita a museos secundarios o galerías independientes recomendadas por locales.",
+        "Último día de caminatas tranquilas, disfrutar del atardecer y cena especial de despedida en un mirador."
+      ];
+
+      for (let i = 0; i < dias; i++) {
+        if (i < place.itinerario.length) {
+          dynamicItinerary.push({
+            dia: `Día ${i + 1}`,
+            descripcion: place.itinerario[i].descripcion
+          });
+        } else {
+          const activityIndex = (i - place.itinerario.length) % extraActivities.length;
+          dynamicItinerary.push({
+            dia: `Día ${i + 1}`,
+            descripcion: extraActivities[activityIndex]
+          });
+        }
+      }
+
+      setOriginalData({
+        destino: place.destino,
+        lat: place.lat,
+        lon: place.lon,
+        clima: place.clima,
+        hoteles: place.hoteles,
+        atracciones: place.atracciones,
+        restaurantes: place.restaurantes,
+        imagen: place.imagen,
+        itinerario: dynamicItinerary,
+        presupuesto_estimado: {
+          total: scaledVuelos + scaledHotel + scaledComida + scaledTransport,
+          vuelos: scaledVuelos,
+          hotel: scaledHotel,
+          comida: scaledComida,
+          transporte: scaledTransport
+        }
+      });
+
+      setShowDashboard(true);
+    } finally {
+      setLoading(false);
     }
-
-    // 5. Configurar datos del dashboard
-    setOriginalData({
-      destino: place.destino,
-      lat: place.lat,
-      lon: place.lon,
-      clima: place.clima,
-      hoteles: place.hoteles,
-      atracciones: place.atracciones,
-      restaurantes: place.restaurantes,
-      imagen: place.imagen,
-      itinerario: dynamicItinerary,
-      presupuesto_estimado: {
-        total: scaledVuelos + scaledHotel + scaledComida + scaledTransport,
-        vuelos: scaledVuelos,
-        hotel: scaledHotel,
-        comida: scaledComida,
-        transporte: scaledTransport
-      }
-    });
-
-    // 6. Activar vista de resultados
-    setError(null);
-    setShowDashboard(true);
 
     // Scroll suave
     setTimeout(() => {
@@ -438,8 +549,18 @@ export default function Home() {
             <Plane className="logo-icon" />
             <span className="logo-text">TravelBudget AI</span>
           </div>
-          <div className="auth-links">
+          <div className="auth-links" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span className="badge-premium" style={{ marginBottom: 0 }}>Calculadora Inteligente</span>
+            <a 
+              href={
+                showDashboard && originalData
+                  ? `https://travelmateai-kn06.onrender.com/login?destino=${encodeURIComponent(originalData.destino)}&presupuesto=${totalBudget}&fecha_inicio=${new Date().toISOString().split('T')[0]}&fecha_fin=${new Date(Date.now() + dias*24*60*60*1000).toISOString().split('T')[0]}`
+                  : `https://travelmateai-kn06.onrender.com/login`
+              }
+              className="navbar-login-btn"
+            >
+              <User size={14} /> Iniciar Sesión en TravelMate
+            </a>
           </div>
         </div>
       </nav>
@@ -881,6 +1002,19 @@ export default function Home() {
                       {submittingLead ? "Enviando Itinerario..." : "Enviar Itinerario a mi Correo"}
                     </button>
                   </form>
+
+                  {/* Redirección a TravelMate Login */}
+                  <div className="lead-alt-login" style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px dashed var(--border-soft)', textAlign: 'center' }}>
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--slate-gray)' }}>
+                      ¿Ya tienes una cuenta de <strong>TravelMate AI</strong>?
+                    </p>
+                    <a
+                      href={`https://travelmateai-kn06.onrender.com/login?destino=${encodeURIComponent(originalData?.destino || destino)}&presupuesto=${totalBudget}&fecha_inicio=${new Date().toISOString().split('T')[0]}&fecha_fin=${new Date(Date.now() + dias*24*60*60*1000).toISOString().split('T')[0]}`}
+                      className="lead-login-link"
+                    >
+                      <User size={14} /> Inicia Sesión para sincronizar este viaje →
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <div className="lead-card" style={{ margin: '0 auto', border: '1px solid #4CAF50', background: '#F1F8E9' }}>

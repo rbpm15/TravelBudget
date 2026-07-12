@@ -1072,3 +1072,45 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   border-color: rgba(0, 166, 153, 0.15);
 }
+
+/* Redirecciones de Autenticación a TravelMate */
+.navbar-login-btn {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ocean-primary);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--ocean-light);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-soft);
+}
+
+.navbar-login-btn:hover {
+  background: var(--ocean-primary);
+  color: #FFFFFF !important;
+  border-color: var(--ocean-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 166, 153, 0.2);
+}
+
+.lead-login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ocean-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.lead-login-link:hover {
+  color: var(--ocean-dark) !important;
+  text-decoration: underline;
+  transform: translateX(3px);
+}

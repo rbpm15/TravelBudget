@@ -9,7 +9,7 @@ export const RECOMMENDED_PLACES = [
     clima: "22°C",
     lat: 20.9139,
     lon: -100.7439,
-    imagen: "https://images.unsplash.com/photo-1585464297241-93e176b6a6cb?auto=format&fit=crop&w=800&q=80",
+    imagen: "/images/san-miguel-de-allende.jpg",
     presupuesto_estimado: {
       vuelos: 250,
       hotel: 300,
@@ -52,7 +52,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Parroquia de San Miguel Arcángel", 
         tipo: "Cultura",
-        imagen: "https://images.unsplash.com/photo-1585464297241-93e176b6a6cb?auto=format&fit=crop&w=600&q=80",
+        imagen: "/images/san-miguel-de-allende.jpg",
         descripcion: "Icónico templo de cantera rosa de finales del siglo XIX, con un diseño gótico único creado por el maestro de obras Zeferino Gutiérrez basándose en postales de iglesias europeas.",
         precio: "Gratis",
         rating: "4.9",
@@ -533,7 +533,7 @@ export const RECOMMENDED_PLACES = [
     clima: "24°C",
     lat: 17.0732,
     lon: -96.7266,
-    imagen: "https://images.unsplash.com/photo-1465256410760-10485d5be681?auto=format&fit=crop&w=800&q=80",
+    imagen: "/images/oaxaca.jpg",
     presupuesto_estimado: {
       vuelos: 220,
       hotel: 280,
@@ -576,7 +576,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Templo de Santo Domingo de Guzmán", 
         tipo: "Cultura Barroca",
-        imagen: "https://images.unsplash.com/photo-1465256410760-10485d5be681?auto=format&fit=crop&w=600&q=80",
+        imagen: "/images/oaxaca.jpg",
         descripcion: "Extraordinaria joya barroca edificada por la orden Dominica a partir de 1570. Su interior deslumbra por su retablo tallado y techos recubiertos con oro de 24 quilates.",
         precio: "Gratis",
         rating: "4.9",
