@@ -18,19 +18,22 @@ export async function POST(request) {
 
     // Check if it's one of the recommended destinations to load high-quality custom data
     if (cleanDestino.includes("san miguel") || cleanDestino.includes("oaxaca")) {
-      const place = cleanDestino.includes("san miguel") ? RECOMMENDED_PLACES[0] : RECOMMENDED_PLACES[1];
-      aiData = {
-        destino: place.destino,
-        lat: place.lat,
-        lon: place.lon,
-        clima: place.clima,
-        hoteles: place.hoteles,
-        atracciones: place.atracciones,
-        restaurantes: place.restaurantes,
-        itinerario: place.itinerario || []
-      };
-      fotoDestino = place.imagen;
-      usedCache = true;
+      const matchKey = cleanDestino.includes("san miguel") ? "san miguel" : "oaxaca";
+      const place = RECOMMENDED_PLACES.find(p => p.destino.toLowerCase().includes(matchKey));
+      if (place) {
+        aiData = {
+          destino: place.destino,
+          lat: place.lat,
+          lon: place.lon,
+          clima: place.clima,
+          hoteles: place.hoteles,
+          atracciones: place.atracciones,
+          restaurantes: place.restaurantes,
+          itinerario: place.itinerario || []
+        };
+        fotoDestino = place.imagen;
+        usedCache = true;
+      }
     } else {
       // 1. Intentar obtener de Caché
       try {
