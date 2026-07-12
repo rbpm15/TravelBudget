@@ -20,7 +20,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Rosewood San Miguel de Allende", 
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80",
         descripcion: "Un lujoso santuario colonial con un spa de clase mundial, piscinas climatizadas rodeadas de jardines y el exclusivo bar Luna Rooftop, que ofrece vistas espectaculares de la Parroquia.",
         precio: "$$$$",
         rating: "4.9",
@@ -30,7 +30,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Hotel Matilda", 
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
         descripcion: "Hotel boutique de diseño contemporáneo enfocado en el arte. Alberga una colección única de arte contemporáneo, una piscina infinity excepcional y el renombrado restaurante gourmet Moxi.",
         precio: "$$$$",
         rating: "4.8",
@@ -40,7 +40,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Casa de Sierra Nevada, A Belmond Hotel", 
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1548625361-155deee223c0?auto=format&fit=crop&w=600&q=80",
         descripcion: "Un conjunto de casonas históricas de los siglos XVI a XVIII restauradas. Habitaciones con chimenea de piedra, una piscina rodeada de muros coloniales y la famosa escuela culinaria Sazón.",
         precio: "$$$$",
         rating: "4.9",
@@ -62,7 +62,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Fábrica La Aurora", 
         tipo: "Arte y Diseño",
-        imagen: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=600&q=80",
         descripcion: "Antigua fábrica textil convertida en un complejo de arte y diseño donde operan galerías de pintores, escultores, tiendas de antigüedades, estudios activos y agradables cafeterías.",
         precio: "Gratis",
         rating: "4.7",
@@ -72,7 +72,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Jardín Principal", 
         tipo: "Plaza Central",
-        imagen: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80",
         descripcion: "El corazón y centro de reunión social de la ciudad. Rodeado de portales históricos y laureles de la India perfectamente esculpidos, ofrece música de mariachis y un ambiente vibrante.",
         precio: "Gratis",
         rating: "4.8",
@@ -82,7 +82,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Cañada de la Virgen", 
         tipo: "Arqueología",
-        imagen: "https://images.unsplash.com/photo-1531816455951-249094173f82?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1518638150341-db7d7f76634a?auto=format&fit=crop&w=600&q=80",
         descripcion: "Asentamiento arqueológico prehispánico Otomí de características defensivas y ceremoniales, que destaca por la precisión matemática de sus pirámides orientadas a los astros.",
         precio: "$60 MXN aprox.",
         rating: "4.6",
@@ -94,7 +94,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Moxi Restaurant", 
         tipo: "Mexicana Contemporánea",
-        imagen: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80",
         descripcion: "Menú excepcional creado por chefs reconocidos, que combina ingredientes tradicionales mexicanos con técnicas de alta cocina moderna, en la terraza vanguardista del Hotel Matilda.",
         precio: "$$$$",
         rating: "4.6",
@@ -104,7 +104,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Áperi", 
         tipo: "Cocina de Autor",
-        imagen: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80",
         descripcion: "Experiencia culinaria íntima con ingredientes del campo a la mesa. Cuenta con un menú degustación multisensorial y una fantástica Mesa del Chef dentro de un patio colonial elegante.",
         precio: "$$$$",
         rating: "4.7",
@@ -114,7 +114,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "La Única", 
         tipo: "Regional y Grill",
-        imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=600&q=80",
         descripcion: "Restaurante de cocina regional y cortes con un toque contemporáneo del norte de México. Cuenta con una terraza espectacular con vistas panorámicas privilegiadas hacia la Parroquia.",
         precio: "$$$",
         rating: "4.5",
@@ -544,7 +544,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Quinta Real Oaxaca", 
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80",
         descripcion: "Majestuoso hotel colonial ubicado en lo que fue el histórico Convento de Santa Catalina de Siena fundado en el siglo XVI. Conserva frescos, arcos de piedra y patios espectaculares.",
         precio: "$$$$",
         rating: "4.9",
@@ -554,7 +554,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Hotel Azul de Oaxaca", 
         stars: "4",
-        imagen: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1508253730651-e5ace80a7025?auto=format&fit=crop&w=600&q=80",
         descripcion: "Hotel boutique de diseño que rinde tributo al arte y la cultura local en colaboración con reconocidos artistas de Oaxaca como Francisco Toledo. Estilo contemporáneo único.",
         precio: "$$$",
         rating: "4.7",
@@ -564,7 +564,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Casa Oaxaca", 
         stars: "5",
-        imagen: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80",
         descripcion: "Un hotel gastronómico boutique de gran prestigio y exclusividad, compuesto por solo 9 habitaciones. Cuenta con el restaurante de renombre dirigido por el chef Alejandro Ruiz.",
         precio: "$$$$",
         rating: "4.9",
@@ -576,7 +576,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Templo de Santo Domingo de Guzmán", 
         tipo: "Cultura Barroca",
-        imagen: "/images/oaxaca.jpg",
+        imagen: "https://images.unsplash.com/photo-1465256410760-10485d5be681?auto=format&fit=crop&w=600&q=80",
         descripcion: "Extraordinaria joya barroca edificada por la orden Dominica a partir de 1570. Su interior deslumbra por su retablo tallado y techos recubiertos con oro de 24 quilates.",
         precio: "Gratis",
         rating: "4.9",
@@ -586,7 +586,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Hierve el Agua", 
         tipo: "Cascadas Petrificadas",
-        imagen: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=600&q=80",
         descripcion: "Un conjunto extraordinario de pozas de agua templada y cascadas petrificadas formadas a lo largo de miles de años por el escurrimiento de agua saturada de carbonato de calcio.",
         precio: "$50 MXN aprox.",
         rating: "4.8",
@@ -596,7 +596,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Monte Albán", 
         tipo: "Sitio Arqueológico",
-        imagen: "https://images.unsplash.com/photo-1531816455951-249094173f82?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?auto=format&fit=crop&w=600&q=80",
         descripcion: "Imponente zona arqueológica precolombina que fungió como la antigua capital de la gran cultura Zapoteca. Fundada en lo alto de un cerro con hermosas vistas panorámicas del valle.",
         precio: "$95 MXN",
         rating: "4.8",
@@ -606,7 +606,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Mercado 20 de Noviembre", 
         tipo: "Mercado Gastronómico",
-        imagen: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80",
         descripcion: "Mercado municipal emblemático de Oaxaca, famoso por su emblemático 'Pasillo de Humo', donde se asan carnes locales como tasajo, cecina y chorizo en asadores de carbón al instante.",
         precio: "Gratis",
         rating: "4.7",
@@ -618,7 +618,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Criollo", 
         tipo: "Cocina Oaxaqueña de Autor",
-        imagen: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
         descripcion: "Un aclamado restaurante de cocina de humo oaxaqueña dirigido por el chef Luis Arellano y Enrique Olvera. Ofrece un exclusivo menú degustación de seis tiempos cambiante diariamente.",
         precio: "$$$$",
         rating: "4.8",
@@ -628,7 +628,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Alfonsina", 
         tipo: "Cocina Tradicional de Humo",
-        imagen: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80",
         descripcion: "Ubicado a las afueras, en el hogar de doña Marcelina Bolaños. Un santuario de cocina tradicional zapoteca donde los moles, tortillas de maíz criollo y tlayudas se hacen a la leña.",
         precio: "$$",
         rating: "4.9",
@@ -638,7 +638,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Origen", 
         tipo: "Fusión Regional",
-        imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
         descripcion: "Restaurante del chef Rodolfo Castellanos (ganador de Top Chef México). Reinterpreta sabores de las ocho regiones del estado bajo técnicas de alta cocina europea.",
         precio: "$$$",
         rating: "4.6",

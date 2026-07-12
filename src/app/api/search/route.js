@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { RECOMMENDED_PLACES } from "@/lib/recommended";
 
 export async function POST(request) {
   try {
@@ -15,33 +16,50 @@ export async function POST(request) {
 
     const cleanDestino = (destino || "").trim().toLowerCase();
 
-    // 1. Intentar obtener de Caché
-    try {
-      const { data, error } = await supabase
-        .from('destinos_cache')
-        .select('*')
-        .ilike('destino', `%${cleanDestino}%`)
-        .eq('tipo_viaje', tipo_viaje)
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .single();
-      
-      if (data && !error) {
-        aiData = {
-          destino: data.destino,
-          lat: data.lat,
-          lon: data.lon,
-          clima: data.clima,
-          hoteles: data.hoteles || [],
-          atracciones: data.atracciones || [],
-          restaurantes: data.restaurantes || [],
-          itinerario: data.itinerario || []
-        };
-        fotoDestino = data.imagen;
-        usedCache = true;
+    // Check if it's one of the recommended destinations to load high-quality custom data
+    if (cleanDestino.includes("san miguel") || cleanDestino.includes("oaxaca")) {
+      const place = cleanDestino.includes("san miguel") ? RECOMMENDED_PLACES[0] : RECOMMENDED_PLACES[1];
+      aiData = {
+        destino: place.destino,
+        lat: place.lat,
+        lon: place.lon,
+        clima: place.clima,
+        hoteles: place.hoteles,
+        atracciones: place.atracciones,
+        restaurantes: place.restaurantes,
+        itinerario: place.itinerario || []
+      };
+      fotoDestino = place.imagen;
+      usedCache = true;
+    } else {
+      // 1. Intentar obtener de Caché
+      try {
+        const { data, error } = await supabase
+          .from('destinos_cache')
+          .select('*')
+          .ilike('destino', `%${cleanDestino}%`)
+          .eq('tipo_viaje', tipo_viaje)
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .single();
+        
+        if (data && !error) {
+          aiData = {
+            destino: data.destino,
+            lat: data.lat,
+            lon: data.lon,
+            clima: data.clima,
+            hoteles: data.hoteles || [],
+            atracciones: data.atracciones || [],
+            restaurantes: data.restaurantes || [],
+            itinerario: data.itinerario || []
+          };
+          fotoDestino = data.imagen;
+          usedCache = true;
+        }
+      } catch (e) {
+        console.warn("Error o caché no encontrado:", e.message);
       }
-    } catch (e) {
-      console.warn("Error o caché no encontrado:", e.message);
     }
 
     // 2. Si no hay cache, consultar IA a través de OpenRouter
