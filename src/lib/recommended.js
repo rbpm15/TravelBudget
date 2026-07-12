@@ -576,7 +576,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Templo de Santo Domingo de Guzmán", 
         tipo: "Cultura Barroca",
-        imagen: "https://images.unsplash.com/photo-1465256410760-10485d5be681?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://www.mexicodesconocido.com.mx/wp-content/uploads/2022/02/LP_Oaxaca-006.jpg",
         descripcion: "Extraordinaria joya barroca edificada por la orden Dominica a partir de 1570. Su interior deslumbra por su retablo tallado y techos recubiertos con oro de 24 quilates.",
         precio: "Gratis",
         rating: "4.9",
@@ -586,7 +586,7 @@ export const RECOMMENDED_PLACES = [
       { 
         nombre: "Hierve el Agua", 
         tipo: "Cascadas Petrificadas",
-        imagen: "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=600&q=80",
+        imagen: "https://i0.wp.com/www.quepasaoaxaca.com/wp-content/uploads/2022/04/hierve-el-agua-coyote-6.jpeg",
         descripcion: "Un conjunto extraordinario de pozas de agua templada y cascadas petrificadas formadas a lo largo de miles de años por el escurrimiento de agua saturada de carbonato de calcio.",
         precio: "$50 MXN aprox.",
         rating: "4.8",
